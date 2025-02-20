@@ -1,2 +1,2 @@
-# App-Entwicklung-
+# App-Entwicklung
 Erstellen einer eigenen App
