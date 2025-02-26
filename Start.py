@@ -12,6 +12,7 @@ data = {
 }
 
 st.divier()
+
 # Erstellen eines DataFrame
 df = pd.DataFrame(data)
 
