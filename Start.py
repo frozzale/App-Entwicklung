@@ -11,6 +11,7 @@ data = {
     'Email': ['frozzale@students.zhaw.ch', 'cardoali@students.zhaw.ch']
 }
 
+st.divier()
 # Erstellen eines DataFrame
 df = pd.DataFrame(data)
 
