@@ -10,9 +10,7 @@ data = {
     'Name': ['Alessia Frozzi', 'Alicia Cardoso'],
     'Email': ['frozzale@students.zhaw.ch', 'cardoali@students.zhaw.ch']
 }
-
 st.divider()
-
 # Erstellen eines DataFrame
 df = pd.DataFrame(data)
 
