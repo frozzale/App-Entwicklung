@@ -1,8 +1,48 @@
 import streamlit as st
 
-st.title("Kalorienverbrauch-Rechner")
-
-st.write("In diesem Rechner kannst du deinen Kalorienverbrauch ganz einfach und unkompliziert berechnen.")
+st.title("Kalorienverbrauchsrechner")
 
 st.write("Autoren: Alessia Frozzi: frozzale@students.zhaw.ch, Alicia Cardoso: cardoali@students.zhaw.ch")
 
+st.write("In diesem Rechner kannst du deinen täglichen, durchschnittlichen Kalorienverbrauch ganz einfach und unkompliziert berechnen. Verwendete Formel: Harris-Benedict-Formel.")
+st.write("Dafür benötigen wir einige Informationen von dir. Bitte fülle die folgenden Felder aus:")
+
+import streamlit as st
+
+st.header("Rechner")
+
+# Eingabefelder für Benutzerinformationen
+gewicht = st.number_input("Gewicht (kg)", min_value=0.0, step=0.1)
+groesse = st.number_input("Größe (cm)", min_value=0.0, step=0.1)
+alter = st.number_input("Alter (Jahre)", min_value=0, step=1)
+geschlecht = st.selectbox("Geschlecht", ["Männlich", "Weiblich"])
+
+# Aktivitätslevel
+aktivitaetslevel = st.selectbox("Aktivitätslevel", [
+    "Wenig oder keine Bewegung",
+    "Leichte Bewegung (1-3 Tage/Woche)",
+    "Mäßige Bewegung (3-5 Tage/Woche)",
+    "Starke Bewegung (6-7 Tage/Woche)",
+    "Sehr starke Bewegung (2x pro Tag)"
+])
+
+# Berechnung des Grundumsatzes (BMR) nach der Harris-Benedict-Formel
+if geschlecht == "Männlich":
+    bmr = 88.362 + (13.397 * gewicht) + (4.799 * groesse) - (5.677 * alter)
+else:
+    bmr = 447.593 + (9.247 * gewicht) + (3.098 * groesse) - (4.330 * alter)
+
+# Berechnung des Kalorienverbrauchs basierend auf dem Aktivitätslevel
+if aktivitaetslevel == "Wenig oder keine Bewegung":
+    kalorienverbrauch = bmr * 1.2
+elif aktivitaetslevel == "Leichte Bewegung (1-3 Tage/Woche)":
+    kalorienverbrauch = bmr * 1.375
+elif aktivitaetslevel == "Mäßige Bewegung (3-5 Tage/Woche)":
+    kalorienverbrauch = bmr * 1.55
+elif aktivitaetslevel == "Starke Bewegung (6-7 Tage/Woche)":
+    kalorienverbrauch = bmr * 1.725
+else:
+    kalorienverbrauch = bmr * 1.9
+
+# Anzeige des Ergebnisses
+st.write(f"Ihr täglicher Kalorienverbrauch beträgt: {kalorienverbrauch:.2f} kcal")
