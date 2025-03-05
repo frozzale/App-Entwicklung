@@ -1,6 +1,8 @@
 import streamlit as st
 
-st.title("Unterseite A")
+st.title("Kalorienverbrauch-Rechner")
 
-st.write("Diese Seite ist eine Unterseite der Startseite.")
+st.write("In diesem Rechner kannst du deinen Kalorienverbrauch ganz einfach und unkompliziert berechnen.")
+
+st.write("Autoren: Alessia Frozzi: frozzale@students.zhaw.ch, Alicia Cardoso: cardoali@students.zhaw.ch")
 

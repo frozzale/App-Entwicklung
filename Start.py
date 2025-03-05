@@ -18,6 +18,3 @@ df = pd.DataFrame(data)
 # Anzeigen der Tabelle
 st.write("Daten in einer Tabelle:")
 st.dataframe(df)
-
-st.button("Klick mich!")
-st.balloons()
