@@ -54,5 +54,14 @@ st.divider()
 st.write("Für weitere Informationen zur Harris-Benedict-Formel und den Aktivitätsleveln klicke folgenden Link:")
 st.link_button("Harris-Benedict-Formel und Aktivitätslevel", "https://de.wikipedia.org/wiki/Grundumsatz")
 
-st.write("Wenn du nicht weisst, wie du deinem Kalorienverbrauch entgegenwirkst, dann klicke hier:")
+st.write("Wenn du nicht weisst, wie du auf deine Kalorien kommen sollst, dann klicke hier:")
 st.link_button("Easy recipes", "https://ch.pinterest.com/allrecipes/easy-recipes/")
+
+st.divider()
+
+st.write("Wie fandest du diesen Rechner? Lass es uns wissen!")
+sentiment_mapping = [":material/thumb_down:", ":material/thumb_up:"]
+selected = st.feedback("thumbs")
+if selected is not None:
+    st.markdown(f"You selected: {sentiment_mapping[selected]}")
+
