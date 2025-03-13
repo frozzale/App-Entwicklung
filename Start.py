@@ -4,7 +4,7 @@ import pandas as pd
 from utils.data_manager import DataManager
 
 # initialize the data manager
-data_manager = DataManager(fs_protocol='webdav', fs_root_folder="BMLD_App_DB")  # switch drive 
+data_manager = DataManager(fs_protocol='webdav', fs_root_folder="BMLD_App_Kalorienverbrauch")  # switch drive 
 
 # load the data from the persistent storage into the session state
 data_manager.load_app_data(
