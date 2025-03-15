@@ -2,5 +2,11 @@ import streamlit as st
 
 st.title("Kalorienverbrauch Werte")
 
-st.write("Diese Seite ist eine Unterseite der Startseite.")
+data_df = st.session_state['data_df']
+if data_df.empty:
+    st.info("Keine Kalorienverbrauchsdaten vorhanden. Berechnen Sie Ihren Kalorienverbrauch auf der Startseite.")
+    st.stop()
 
+data_df = data_df.sort_values('timestamp', ascending=False)
+
+st.dataframe(data_df)

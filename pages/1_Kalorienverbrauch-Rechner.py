@@ -1,4 +1,5 @@
 import streamlit as st
+from utils.data_manager import DataManager
 
 st.title("Kalorienverbrauchsrechner")
 
@@ -7,7 +8,6 @@ st.divider()
 st.write("In diesem Rechner kannst du deinen täglichen, durchschnittlichen Kalorienverbrauch ganz einfach und unkompliziert berechnen. Verwendete Formel: Harris-Benedict-Formel.")
 st.write("Dafür benötigen wir einige Informationen von dir. Bitte fülle die folgenden Felder aus:")
 
-import streamlit as st
 
 st.header("Rechner")
 
@@ -46,8 +46,21 @@ if st.button("Submit"):
     else:
         kalorienverbrauch = bmr * 1.9
 
+    # Speichern der Ergebnisse
+    result = {
+        "Gewicht (kg)": gewicht,
+        "Größe (cm)": groesse,
+        "Alter (Jahre)": alter,
+        "Geschlecht": geschlecht,
+        "Aktivitätslevel": aktivitaetslevel,
+        "Kalorienverbrauch (kcal)": kalorienverbrauch
+    }
+
+    DataManager().append_record(session_state_key='data_df', record_dict=result)  
+
     # Anzeige des Ergebnisses
     st.write(f"Ihr täglicher Kalorienverbrauch beträgt: {kalorienverbrauch:.2f} kcal")
+
 
 st.divider()
 
