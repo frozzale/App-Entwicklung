@@ -1,5 +1,6 @@
 import streamlit as st
 from utils.data_manager import DataManager
+from utils import helpers
 
 st.title("Kalorienverbrauchsrechner")
 
@@ -48,6 +49,7 @@ if st.button("Submit"):
 
     # Speichern der Ergebnisse
     result = {
+        "timestamp": helpers.ch_now(),
         "Gewicht (kg)": gewicht,
         "Größe (cm)": groesse,
         "Alter (Jahre)": alter,
