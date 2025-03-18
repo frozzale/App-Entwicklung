@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 
 st.title("Grafische Darstellung des Kalorienverbrauchs")
 
@@ -14,10 +15,29 @@ st.caption('Gewicht über Zeit (kg)')
 st.line_chart(data_df.set_index('timestamp')['Gewicht (kg)'], 
                 use_container_width=True)
 
-# Aktiviätslevel über Zeit
-st.caption('Aktivitätslevel über Zeit')
-st.line_chart(data=data_df.set_index('timestamp')['Aktivitätslevel'],
-                use_container_width=True)
+# Aktivitätslevel über Zeit (geordnet)
+st.caption('Aktivitätslevel über Zeit (geordnet)')
+# Aktivitätslevel in eine geordnete Kategorie umwandeln
+activity_order = [
+    "Sehr starke Bewegung (2x pro Tag)",
+    "Starke Bewegung (6-7 Tage/Woche)",
+    "Mäßige Bewegung (3-5 Tage/Woche)",
+    "Leichte Bewegung (1-3 Tage/Woche)",
+    "Wenig oder keine Bewegung"
+]
+data_df['Aktivitätslevel'] = pd.Categorical(
+    data_df['Aktivitätslevel'], categories=activity_order, ordered=True
+)
+# Plotly-Chart für Aktivitätslevel
+fig = px.line(
+    data_df,
+    x='timestamp',
+    y='Aktivitätslevel',
+    title='Aktivitätslevel über Zeit',
+    category_orders={"Aktivitätslevel": activity_order},
+    labels={"Aktivitätslevel": "Aktivitätslevel", "timestamp": "Zeitpunkt"}
+)
+st.plotly_chart(fig, use_container_width=True)
 
 # Kalorienverbrauch über Zeit
 st.caption('Kalorienverbrauch über Zeit (kcal)')
