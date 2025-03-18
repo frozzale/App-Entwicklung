@@ -56,12 +56,13 @@ if st.button("Submit"):
         "Geschlecht": geschlecht,
         "Aktivitätslevel": aktivitaetslevel,
         "Kalorienverbrauch (kcal)": kalorienverbrauch
-    }
-
-    DataManager().append_record(session_state_key='data_df', record_dict=result)  
+    }  
 
     # Anzeige des Ergebnisses
     st.write(f"Ihr täglicher Kalorienverbrauch beträgt: {kalorienverbrauch:.2f} kcal")
+
+    from utils.data_manager import DataManager
+    DataManager().append_record(session_state_key='data_df', record_dict=result)
 
 
 st.divider()

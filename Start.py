@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-
 from utils.data_manager import DataManager
 
 # initialize the data manager
@@ -13,6 +12,9 @@ data_manager.load_app_data(
     initial_value = pd.DataFrame(), 
     parse_dates = ['timestamp']
     )
+
+if 'key' not in st.session_state:
+    st.session_state['key'] = 'value'
 
 st.title("Meine erste Streamlit App")
 
