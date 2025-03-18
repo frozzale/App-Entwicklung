@@ -4,7 +4,7 @@ from utils.data_manager import DataManager
 from utils.login_manager import LoginManager
 
 # initialize the data manager
-data_manager = DataManager(fs_protocol='webdav', fs_root_folder="BMLD_App_Kalorienverbrauch")  # switch drive 
+data_manager = DataManager(fs_protocol='webdav', fs_root_folder="BMLD_App_Kalorienverbrauch2.0")  # switch drive 
 
 # initialize the login manager
 login_manager = LoginManager(data_manager)
