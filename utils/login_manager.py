@@ -3,6 +3,7 @@ import streamlit as st
 import streamlit_authenticator as stauth
 from utils.data_manager import DataManager
 
+dh = DataManager()  # Initialize dh as an instance of DataManager
 try:
     data = dh.load(file_name, initial_value, **load_args)
 except FileNotFoundError:
