@@ -2,6 +2,14 @@ import json, yaml, posixpath
 import pandas as pd
 from io import StringIO
 
+def load(self, relative_path, initial_value=None, **load_args):
+    try:
+        # Kodierung explizit angeben (z. B. 'latin1' oder 'ISO-8859-1')
+        return pd.read_csv(StringIO(self.read_text(relative_path)), encoding='utf-8', **load_args)
+    except UnicodeDecodeError:
+        # Fallback auf eine andere Kodierung
+        return pd.read_csv(StringIO(self.read_text(relative_path)), encoding='latin1', **load_args)
+
 class DataHandler:
     def __init__(self, filesystem, root_path):
         """
