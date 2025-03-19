@@ -3,6 +3,11 @@ import streamlit as st
 import streamlit_authenticator as stauth
 from utils.data_manager import DataManager
 
+try:
+    data = dh.load(file_name, initial_value, **load_args)
+except FileNotFoundError:
+    st.warning(f"Datei {file_name} wurde nicht gefunden. Initialwert wird verwendet.")
+    data = initial_value
 
 class LoginManager:
     """
