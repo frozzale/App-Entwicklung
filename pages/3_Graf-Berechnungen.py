@@ -24,7 +24,3 @@ st.caption('Kalorienverbrauch über Zeit (kcal)')
 st.line_chart(data=data_df.set_index('timestamp')['Kalorienverbrauch (kcal)'],
                 use_container_width=True)
 
-# Wie viele Nutzer in einem Aktivitätslevel sind
-st.caption("Verteilung der Aktivitätslevel")
-activity_counts = data_df['Aktivitaetslevel'].value_counts()
-st.bar_chart(activity_counts)
