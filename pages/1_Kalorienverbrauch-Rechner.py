@@ -28,7 +28,7 @@ geschlecht = st.selectbox("Geschlecht", ["Männlich", "Weiblich"])
 aktivitaetslevel = st.selectbox("Aktivitätslevel", [
     "Wenig oder keine Bewegung",
     "Leichte Bewegung (1-3 Tage/Woche)",
-    "Mäßige Bewegung (3-5 Tage/Woche)",
+    "Mässige Bewegung (3-5 Tage/Woche)",
     "Starke Bewegung (6-7 Tage/Woche)",
     "Sehr starke Bewegung (2x pro Tag)"
 ])
@@ -46,7 +46,7 @@ if st.button("Submit"):
         kalorienverbrauch = bmr * 1.2
     elif aktivitaetslevel == "Leichte Bewegung (1-3 Tage/Woche)":
         kalorienverbrauch = bmr * 1.375
-    elif aktivitaetslevel == "Mäßige Bewegung (3-5 Tage/Woche)":
+    elif aktivitaetslevel == "Maessige Bewegung (3-5 Tage/Woche)":
         kalorienverbrauch = bmr * 1.55
     elif aktivitaetslevel == "Starke Bewegung (6-7 Tage/Woche)":
         kalorienverbrauch = bmr * 1.725

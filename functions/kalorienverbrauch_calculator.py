@@ -29,7 +29,7 @@ def calculate_calories(height, weight, age, gender, activity_level):
     activity_multipliers = {
         "Wenig oder keine Bewegung": 1.2,
         "Leichte Bewegung (1-3 Tage/Woche)": 1.375,
-        "Mäßige Bewegung (3-5 Tage/Woche)": 1.55,
+        "Maessige Bewegung (3-5 Tage/Woche)": 1.55,
         "Starke Bewegung (6-7 Tage/Woche)": 1.725,
         "Sehr starke Bewegung (2x pro Tag)": 1.9,
     }
