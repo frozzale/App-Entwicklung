@@ -35,7 +35,7 @@ data_df['Aktivitaetslevel'] = pd.Categorical(
 
 # Balkendiagramm für Aktivitätslevel
 activity_counts = data_df['Aktivitaetslevel'].value_counts().reindex(activity_order, fill_value=0)
-st.bar_chart(activity_counts, use_container_width=True)
+st.line_chart(activity_counts, use_container_width=True)
 
 # Kalorienverbrauch über Zeit
 st.caption('Kalorienverbrauch über Zeit (kcal)')
