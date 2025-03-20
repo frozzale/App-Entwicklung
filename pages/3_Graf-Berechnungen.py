@@ -32,16 +32,6 @@ activity_order = [
 data_df['Aktivitätslevel'] = pd.Categorical(
     data_df['Aktivitätslevel'], categories=activity_order, ordered=True
 )
-# Plotly-Chart für Aktivitätslevel
-fig = px.line(
-    data_df,
-    x='timestamp',
-    y='Aktivitätslevel',
-    title='Aktivitätslevel über Zeit',
-    category_orders={"Aktivitätslevel": activity_order},
-    labels={"Aktivitätslevel": "Aktivitätslevel", "timestamp": "Zeitpunkt"}
-)
-st.plotly_chart(fig, use_container_width=True)
 
 # Kalorienverbrauch über Zeit
 st.caption('Kalorienverbrauch über Zeit (kcal)')
