@@ -29,8 +29,8 @@ activity_order = [
     "Leichte Bewegung (1-3 Tage/Woche)",
     "Wenig oder keine Bewegung"
 ]
-data_df['Aktivitätslevel'] = pd.Categorical(
-    data_df['Aktivitätslevel'], categories=activity_order, ordered=True
+data_df['Aktivitaetslevel'] = pd.Categorical(
+    data_df['Aktivitaetslevel'], categories=activity_order, ordered=True
 )
 
 # Kalorienverbrauch über Zeit
