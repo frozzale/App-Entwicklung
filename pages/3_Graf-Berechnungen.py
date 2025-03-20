@@ -5,7 +5,6 @@ LoginManager().go_to_login('Start.py')
 
 import streamlit as st
 import pandas as pd
-import plotly.express as px
 
 st.title("Grafische Darstellung des Kalorienverbrauchs")
 
