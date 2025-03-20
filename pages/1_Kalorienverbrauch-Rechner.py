@@ -57,10 +57,10 @@ if st.button("Submit"):
     result = {
         "timestamp": helpers.ch_now(),
         "Gewicht (kg)": gewicht,
-        "Größe (cm)": groesse,
+        "Groeße (cm)": groesse,
         "Alter (Jahre)": alter,
         "Geschlecht": geschlecht,
-        "Aktivitätslevel": aktivitaetslevel,
+        "Aktivitaetslevel": aktivitaetslevel,
         "Kalorienverbrauch (kcal)": kalorienverbrauch
     }  
 
