@@ -33,9 +33,17 @@ data_df['Aktivitaetslevel'] = pd.Categorical(
     data_df['Aktivitaetslevel'], categories=activity_order, ordered=True
 )
 
-# Balkendiagramm für Aktivitätslevel
-activity_counts = data_df['Aktivitaetslevel'].value_counts().reindex(activity_order, fill_value=0)
-st.line_chart(activity_counts, use_container_width=True)
+# Balkendiagramm für Aktivitätslevel über Zeit
+activity_over_time = data_df[['timestamp', 'Aktivitaetslevel']].copy()
+activity_over_time['count'] = 1
+activity_over_time = activity_over_time.pivot_table(
+    index='timestamp',
+    columns='Aktivitaetslevel',
+    values='count',
+    aggfunc='sum',
+    fill_value=0
+)
+st.bar_chart(activity_over_time, use_container_width=True)
 
 # Kalorienverbrauch über Zeit
 st.caption('Kalorienverbrauch über Zeit (kcal)')
