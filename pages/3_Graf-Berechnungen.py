@@ -33,13 +33,9 @@ data_df['Aktivitaetslevel'] = pd.Categorical(
     data_df['Aktivitaetslevel'], categories=activity_order, ordered=True
 )
 
-# Aktivitätslevel als numerische Werte für die Darstellung
-activity_mapping = {level: i for i, level in enumerate(activity_order)}
-data_df['Aktivitaetslevel_num'] = data_df['Aktivitaetslevel'].map(activity_mapping)
-
-# Liniengraf für Aktivitätslevel
-st.line_chart(data=data_df.set_index('timestamp')['Aktivitaetslevel_num'],
-              use_container_width=True)
+# Balkendiagramm für Aktivitätslevel
+activity_counts = data_df['Aktivitaetslevel'].value_counts().reindex(activity_order, fill_value=0)
+st.bar_chart(activity_counts, use_container_width=True)
 
 # Kalorienverbrauch über Zeit
 st.caption('Kalorienverbrauch über Zeit (kcal)')
