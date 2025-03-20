@@ -20,9 +20,9 @@ st.header("Rechner")
 
 # Eingabefelder für Benutzerinformationen
 gewicht = st.number_input("Gewicht (kg)", min_value=0.0, step=0.1)
-groesse = st.number_input("Größe (cm)", min_value=0.0, step=0.1)
+groesse = st.number_input("Groesse (cm)", min_value=0.0, step=0.1)
 alter = st.number_input("Alter (Jahre)", min_value=0, step=1)
-geschlecht = st.selectbox("Geschlecht", ["Männlich", "Weiblich"])
+geschlecht = st.selectbox("Geschlecht", ["Maennlich", "Weiblich"])
 
 # Aktivitätslevel
 aktivitaetslevel = st.selectbox("Aktivitätslevel", [
